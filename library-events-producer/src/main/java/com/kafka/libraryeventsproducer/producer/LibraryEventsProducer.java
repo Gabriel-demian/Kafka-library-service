@@ -27,9 +27,17 @@ public class LibraryEventsProducer {
         this.objectMapper = objectMapper;
     }
 
+    /**
+     * this method will publish the message into the Kafka topic using the kafka template
+     * @param libraryEvent
+     * @throws JsonProcessingException
+     */
     public CompletableFuture<SendResult<Integer, String>> sendLibraryEvent(LibraryEvent libraryEvent) throws JsonProcessingException {
         var key = libraryEvent.libraryEventId();
         var value = objectMapper.writeValueAsString(libraryEvent);
+
+        // 1. Blocking call - get metadata about the kafka cluster
+        // 2. Send message happens - Returns a CompletableFuture
         var completableFuture = kafkaTemplate.send(topic, key, value);
 
         return completableFuture

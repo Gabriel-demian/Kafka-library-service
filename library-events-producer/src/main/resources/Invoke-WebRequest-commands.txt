@@ -14,9 +14,9 @@ Invoke-WebRequest -Uri "http://localhost:8081/v1/libraryevent" -Method Post -Hea
 
         "bookId": 456,
 
-        "bookName": "Kafka Using Spring Boot",
+        "bookName": "Kafka Streams in Action",
 
-        "bookAuthor": "Dilip"
+        "bookAuthor": "Bill Bejeck"
 
     }
 
@@ -38,9 +38,9 @@ Invoke-WebRequest -Uri "http://localhost:8081/v1/libraryevent" -Method Put -Head
 
         "bookId": 456,
 
-        "bookName": "Kafka Using Spring Boot",
+        "bookName": "Kafka Streams in Action",
 
-        "bookAuthor": "Dilip"
+        "bookAuthor": "Bill Bejeck"
 
     }
 
@@ -60,9 +60,9 @@ Invoke-WebRequest -Uri "http://localhost:8081/v1/libraryevent" -Method Put -Head
 
         "bookId": 456,
 
-        "bookName": "Kafka Using Spring Boot",
+        "bookName": "Kafka Streams in Action",
 
-        "bookAuthor": "Dilip"
+        "bookAuthor": "Bill Bejeck"
 
     }
 
@@ -84,9 +84,9 @@ Invoke-WebRequest -Uri "http://localhost:8081/v1/libraryevent" -Method Put -Head
 
         "bookId": 456,
 
-        "bookName": "Kafka Using Spring Boot",
+        "bookName": "Kafka Streams in Action",
 
-        "bookAuthor": "Dilip"
+        "bookAuthor": "Bill Bejeck"
 
     }
 
@@ -106,9 +106,9 @@ Invoke-WebRequest -Uri "http://localhost:8081/v1/libraryevent" -Method Put -Head
 
         "bookId": 456,
 
-        "bookName": "Kafka Using Spring Boot",
+        "bookName": "Kafka Streams in Action",
 
-        "bookAuthor": "Dilip"
+        "bookAuthor": "Bill Bejeck"
 
     }
 
@@ -128,9 +128,9 @@ Invoke-WebRequest -Uri "http://localhost:8081/v1/libraryevent" -Method Put -Head
 
         "bookId": 456,
 
-        "bookName": "Kafka Using Spring Boot",
+        "bookName": "Kafka Streams in Action",
 
-        "bookAuthor": "Dilip"
+        "bookAuthor": "Bill Bejeck"
 
     }
 
@@ -152,9 +152,9 @@ Invoke-WebRequest -Uri "http://localhost:8081/v1/libraryevent" -Method Put -Head
 
         "bookId": 456,
 
-        "bookName": "Kafka Using Spring Boot",
+        "bookName": "Kafka Streams in Action",
 
-        "bookAuthor": "Dilip"
+        "bookAuthor": "Bill Bejeck"
 
     }
 
