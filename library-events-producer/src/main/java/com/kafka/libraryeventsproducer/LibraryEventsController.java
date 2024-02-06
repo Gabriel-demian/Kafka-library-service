@@ -1,4 +1,4 @@
-package com.kafka.libraryeventsproducer.controller;
+package com.kafka.libraryeventsproducer;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.kafka.libraryeventsproducer.domain.LibraryEvent;
