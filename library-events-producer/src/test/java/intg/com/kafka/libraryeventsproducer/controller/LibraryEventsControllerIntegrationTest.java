@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.*;
+import org.springframework.kafka.test.context.EmbeddedKafka;
+import org.springframework.test.context.TestPropertySource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -14,10 +16,21 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@EmbeddedKafka(topics = "library-events")
+@TestPropertySource(properties = {"spring.kafka.producer.bootstrap-servers=${spring.embedded.kafka.brokers}",
+        "spring.kafka.admin.properties.bootstrap.servers=${spring.embedded.kafka.brokers}"})
 class LibraryEventsControllerIntegrationTest {
 
     @Autowired
     TestRestTemplate restTemplate;
+
+    // Configure embeddedKafkaBroker, - Done
+    //Override the kafka producer bootstrap address to the embedded broker ones - Done
+
+    // Configure a Kafka consumer in the test case
+    // Wire KafkaConsumer and EmbeddedKafkaBroker
+    // Consume the record from the EmbeddedkafkaBroker and then assert on it.
+
 
     @Test
     void postLibraryEvent() {
