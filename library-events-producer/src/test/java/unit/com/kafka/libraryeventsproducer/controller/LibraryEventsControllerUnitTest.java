@@ -1,7 +1,6 @@
 package com.kafka.libraryeventsproducer.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.kafka.libraryeventsproducer.controller.LibraryEventsController;
 import com.kafka.libraryeventsproducer.domain.LibraryEvent;
 import com.kafka.libraryeventsproducer.producer.LibraryEventsProducer;
 import com.kafka.libraryeventsproducer.util.TestUtil;
@@ -17,6 +16,7 @@ import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 
 @WebMvcTest(LibraryEventsController.class)
 @AutoConfigureMockMvc
@@ -48,17 +48,20 @@ public class LibraryEventsControllerUnitTest {
     }
 
     @Test
-    void postLibraryEvent_invalidValues() throws Exception {
+    void postLibraryEvent_4xx() throws Exception {
         //given
 
         String json = objectMapper.writeValueAsString(TestUtil.libraryEventRecordWithInvalidBook());
         when(libraryEventsProducer.sendLibraryEvent_approach2(isA(LibraryEvent.class))).thenReturn(null);
 
+        var expectedErrorMessage = "book.bookId - must not be null, book.bookName - must not be blank";
+
         //expect
         mockMvc.perform(post("/v1/libraryevent")
                         .content(json)
                         .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().is4xxClientError());
+                .andExpect(status().is4xxClientError())
+                .andExpect(content().string(expectedErrorMessage));
 
     }
 
